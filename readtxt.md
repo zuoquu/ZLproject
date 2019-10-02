@@ -51,7 +51,7 @@ $a={trim#传值};//注意有;
 class类里面，zqdb类和func类使用文档在文件中。  
 # script单独使用
 # 点击输入到框
-<a href="#" onclick="atAdd('{% {echo$# $dbusers[1]} %}');return false">@<\/a>  
+\<a href="#" onclick="atAdd('{% {echo$# $dbusers[1]} %}');return false">@\<\/a\>  
 
 # 实例化文档
 dbubb类，dball类均可实例化类，单独使用，如果重复使用，可以实例化使用。  
@@ -59,12 +59,12 @@ dbubb类，dball类均可实例化类，单独使用，如果重复使用，可�
 
 # 模板文档
 # {u#http://zl88.net}
-这个转化为html标签，<a href="http://zl88.net">http://zl88.net<\/a>  
+这个转化为html标签，\<a href="http://zl88.net"\>http://zl88.net\<\/a\>  
 # {u#zl88.net,主流}
-这样会转化为 <a href="zl88.net">主流<\/a>  
+这样会转化为 \<a href="zl88.net"\>主流\<\/a\>  
 ps:不支持传入函数  
 # {u$#函数,主流}
-转化为 echo "<a href='".函数."'>主流<\/a>";  
+转化为 echo "\<a href='".函数."'\>主流\<\/a\>";  
 # {u2$#函数,函数}  
 和上面类似。  
 如:  
@@ -72,7 +72,7 @@ $row = {u$#函数,函数} 注意没有;
 # {img#链接}
 和a链接一样。  
 # {img$#函数}
-转化为 echo '<imgsre="'.$函数.'">';弥补上面不支持函数缺陷。  
+转化为 echo '\<imgsre="'.$函数.'"\>';弥补上面不支持函数缺陷。  
 # {img$#函数,size:宽\*长}
 设置长宽。  
 # {echo#内容(no函数)}
@@ -83,10 +83,10 @@ ps:单引号，时不支持匹配单引号，双引号时不支持匹配双引�
 # {echo$#函数(yes函数)}
 转化为 echo $函数;为了弥补1，2模块不支持函数。  
 # {echou#网址(yes函数),主流(yes函数)}
-转化为 echo '<a href="网址(函数)">主流(函数)<\/a>';  
+转化为 echo '\<a href="网址(函数)">主流(函数)\<\/a\>';  
 ps:只支持函数。  
 # {% %}
-这两个符号会自动转化为 <?php ?>  
+这两个符号会自动转化为 \<?php ?\>  
 # {(term)}
 转化为<\/title><\/head>\<body\>  
 # {(end)}
