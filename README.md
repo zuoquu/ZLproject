@@ -42,7 +42,18 @@
 添加高亮行号。  
 20191207  
 增加tool数据结构，方便后台操作友情链接，工具列表。直接使用实例化对象，未转化。  
-  
+20191221  
+增加识别wap,web类，返回wap或者web，进行判断。  
+ 优化文章页面布局，评论布局，以及全站nav重做。电脑和手机nav区分。  
+20191225  
+增加color模板首页图片显示。  
+20200127  
+添加多表情ubb;增加删除文件;修复回复高亮错误问题。  
+20200213  
+添加回复发帖修改续写聊天输入框点击加入表情。  
+优化搜索引擎，可以模糊搜索用户。  
+添加首页个性栏。  
+
 # 使用文档
 所有的模板标签处于html内，并且必须遵循php逻辑，符号，标签。规则。  
 
@@ -190,13 +201,15 @@ $u不赋值。
 # {#dbqxusers}
 固定返回$dbqxusers数组，权限组，同dbusers  
 # {#dbdelete#$tid(必须),方式(选择)}
-删除数据。需要选择方式，待选 reply text  
+删除数据。需要选择方式，待选 reply text chat  
 # {#dbmove#$tid(必须),$move(必须)}
 移动文章。  
 # {#dbupload#$files[名字],$数组}
 上传文件，数组传值[type,tid,内容]  
-# {#dbsearch#函数(必须)}
-论坛搜索支持模糊搜过，id tid   
+# {#dbsoso#函数(必须)}  
+论坛搜索支持模糊搜过，id tid   返回到$res需要结合循环使用  
+# {#dbsona#$(函数)}  
+搜索用户，同soso使用。  
 # {#dbmessages#$fs}
 信箱方式综合显示，$fs 为wd未读 yd已读 at爱特。没有返回值，需要配合foreach使用，类似，dbindexlists模板。  
 # {#dbmesreads}
@@ -207,7 +220,13 @@ $u不赋值。
 直接返回函数$dbmesnums,输出未读信息条数。  
 # {#dbupduser#$garr(数组)} 
 修改用户信息，包括管理权限，元素较多，传入数组。  
-# {#dbset#$函数}
+# {#dbset#$tid,$函数}
 使用同move,功能设置帖子状态  
+使用方法{#dbset#$tid,$state}  
+$state="state=0";  
 # {#dbtopicstates#$函数}
-传值判断函数，从而显示文章状态。直接返回固定函数$dbtopicstates，配合使用。。。。。  
+传值判断函数，从而显示文章状态。直接返回固定函数$dbtopicstates，配合使用。  
+# {#dbsubstr#$(函数)}  
+剔除html php标签，然后截取字符串。返回固定字符串函数$dbsubstr  
+# {#dbdelfile#$(文章)}  
+删除文章时，删除该文章所属于的文件。
